@@ -1,3 +1,5 @@
+ENV GOCACHE=/tmp/go-build-cache
+
 FROM jenkins/jenkins:lts-jdk17
 
 USER root
@@ -15,5 +17,3 @@ RUN echo "deb [arch=$(dpkg --print-architecture) \
 RUN apt-get update && apt-get install -y docker-ce-cli
 
 USER Jenkins
-
-ENV GOCACHE=/tmp/go-build-cache
