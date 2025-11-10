@@ -18,8 +18,5 @@ RUN apt-get update && apt-get install -y docker-ce-cli
 
 USER Jenkins
 
-FROM golang:latest
-
-RUN mkdir -p /.cache && chmod -R 777 /.cache
 
 
