@@ -11,7 +11,7 @@ pipeline {
           }
             steps {
                 dir('bugtracker-backend'){
-                FROM golang:latest
+               
                 RUN mkdir -p /.cache && chmod -R 777 /.cache
                 sh 'go test -v ./...'
              }
