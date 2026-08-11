@@ -33,7 +33,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "26"
+          node-version: "26.7.0"
           cache: "npm"
           cache-dependency-path: bugtracker-frontend/package-lock.json
 
@@ -43,6 +43,14 @@ jobs:
         run: |
           npm ci
           npm test
+
+          - name: Publish Frontend Test Results
+          uses: dorny/test-reporter@v1
+          if: always()
+          with:
+            name: Frontend Unit Test Reports
+            path: bugtracker-backend/test-results.xml
+            reporter: jest-junit
 
 
 
