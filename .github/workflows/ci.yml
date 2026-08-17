@@ -42,8 +42,10 @@ jobs:
         working-directory: ./bugtracker-frontend
         run: |
           npm ci
-          npm test
-
+          npm test-- --reporters=default --reporters=jest-junit
+          Env:
+             JEST_JUNIT_OUTPUT_FILE: “test-results.xml”
+          
 
 
 
@@ -52,4 +54,3 @@ jobs:
 
 
 
-          
