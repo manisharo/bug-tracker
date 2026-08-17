@@ -42,7 +42,7 @@ jobs:
         working-directory: ./bugtracker-frontend
         run: |
           npm ci
-          npm test-- --reporters=default --reporters=jest-junit
+          npm test
 
 
 
@@ -51,3 +51,5 @@ jobs:
             
 
 
+
+          
