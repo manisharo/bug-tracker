@@ -21,21 +21,13 @@ jobs:
        - name: Install go-junit-report
          run: go install github.com/jstemmer/go-junit-report/v2@latest
 
-
        - name: Execute Backend Unit Tests
          working-directory: ./bugtracker-backend
          run: |
             go test -v ./... 2>&1 | go-junit-report > test-result.xml
 
-        - name: Publish backend Test Results
-          uses: dorny/test-reporter@v1
-          if: always()
-          with: 
-            name: Backend Unit Test Report
-            path: bugtracker-backend/test-results.xml
-            reporter: jest-junit
-          
-            
+
+                   
 
 
   unit-test-frontend:
