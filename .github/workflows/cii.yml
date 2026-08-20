@@ -26,17 +26,7 @@ jobs:
          run: |
             go test -v ./... 2>&1 | go-junit-report > test-result.xml
 
-       - name: Publish Backend Test Results
-         uses: dorny/test-reporter@v1
-         if: always()
-         with: 
-              name: Backend Unit Test Report
-              path: bugtracker-backend/test-results.xml
-              reporter: jest-junit
-
-
-                   
-
+   
 
   unit-test-frontend:
      needs: unit-test-backend
