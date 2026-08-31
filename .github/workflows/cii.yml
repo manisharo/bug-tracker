@@ -27,7 +27,7 @@ jobs:
          run: go install github.com/jstemmer/go-junit-report/v2@latest
 
        - name: Execute Backend Unit Tests
-         ids: test-backend
+         id: test-backend
          working-directory: ./bugtracker-backend
          run: |
 
@@ -93,10 +93,10 @@ jobs:
             path: bugtracker-frontend/test-results.xml
             reporter: jest-junit
 
-        create-coverage-comment:
+  create-coverage-comment:
            if: github.event_name == 'pull_request'
            needs: [unit-test-backend]
-           runs_on: ubuntu-latest
+           runs-on: ubuntu-latest
            permissions:
                pull-requests: write
            steps:
