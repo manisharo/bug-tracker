@@ -169,7 +169,7 @@ jobs:
         uses: dorny/test-reporter@v1
         if: always()
         with:
-          name: API Tests Reports
+          name: API Tests Report
           path: ./tests-api/test-results/*.xml
           reporter: jest-junit
           
