@@ -143,6 +143,6 @@ jobs:
         working-directory: ./tests-api
         run: |
           npm ci
-          npx plauwright test
+          npx playwright test
 
 
