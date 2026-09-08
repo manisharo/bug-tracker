@@ -125,14 +125,13 @@ jobs:
                      ```
                      ${{needs.unit-test-frontend.outputs.coverage}}
                      ```
-
-   api-tests:
-     needs: [unit-test-backend,unit-test-frontend]
+  api-tests:
+     needs: [unit-test-backend, unit-test-frontend]
      runs-on: ubuntu-latest
 
      steps:
       - name: Checkout repostitory
-        uses: actons/checkout@v4
+        uses: actions/checkout@v4
 
       - name: Launch Application
         run: |
