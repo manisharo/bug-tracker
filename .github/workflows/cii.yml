@@ -140,7 +140,7 @@ jobs:
 
 
       - name: Run Api Tests
-        working-directory: /tests.api
+        working-directory: ./tests-api
         run: |
           npm ci
           npx plauwright test
