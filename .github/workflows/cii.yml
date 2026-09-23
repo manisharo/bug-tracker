@@ -125,7 +125,7 @@ jobs:
                      ```
                      ${{needs.unit-test-frontend.outputs.coverage}}
                      ```
-  api-tests:
+  api-e2e-tests:
      needs: [unit-test-backend, unit-test-frontend]
      runs-on: ubuntu-latest
 
@@ -144,6 +144,16 @@ jobs:
         run: |
           npm ci
           npx playwright test
+
+
+      - name: Run e2e Tests
+        working-directory: ./tests-e2e
+        env:
+          CI: "1"
+        run: |
+          npm ci
+          npx playwright install
+          npx playwright test  
 
       - name: Stop the Application
         run: docker compose down
